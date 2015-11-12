@@ -133,7 +133,7 @@ nets = dict(
             'terracoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
-        SUBSIDY_FUNC=lambda height: 20*100000000 >> (height + 1)//1050000,
+        SUBSIDY_FUNC=lambda height: 20*10000 >> (height + 1)//1050000,
         POW_FUNC=data.hash256,
         BLOCK_PERIOD=120, # s
         SYMBOL='TRC',
@@ -266,7 +266,7 @@ nets = dict(
             'SGcoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
-        SUBSIDY_FUNC=lambda height: 500*100000000,
+        SUBSIDY_FUNC=lambda height: 500*1400000,
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         BLOCK_PERIOD=30, # s targetspacing
         SYMBOL='SGC',
